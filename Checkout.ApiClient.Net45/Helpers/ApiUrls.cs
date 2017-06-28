@@ -24,6 +24,8 @@
         private static string _cardsApiUri;
         private static string _cardApiUri;
 
+        private static string _addDrinkApiUri;
+
         private static string _reportingTransactionsUri;
         private static string _reportingChargebacksUri;
 
@@ -182,5 +184,7 @@
                 _recurringCustomerPaymentPlanApiUri ??
                 (_recurringCustomerPaymentPlanApiUri =
                     string.Concat(AppSettings.BaseApiUri, "/recurringPayments/customers/{0}"));
+
+        public static string AddDrink => _addDrinkApiUri ?? (_addDrinkApiUri = string.Concat(AppSettings.BaseApiUri, "/charges"));
     }
 }
