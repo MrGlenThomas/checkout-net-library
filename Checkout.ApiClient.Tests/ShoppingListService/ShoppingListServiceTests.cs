@@ -10,6 +10,25 @@ namespace Tests.ShoppingListService
     class ShoppingListServiceTests : BaseServiceTests
     {
         [Test]
+        public void AddDrinkDoesntAllowDuplicate()
+        {
+            var name = "TestDrink1";
+            var quantity = 100;
+
+            var drinkCreateModel = TestHelper.GetDrinksCreateModel(name, quantity);
+
+            var response1 = CheckoutClient.ShoppingListService.AddDrink(drinkCreateModel);
+
+            response1.Should().NotBeNull();
+            response1.HttpStatusCode.Should().Be(HttpStatusCode.OK);
+
+            var response2 = CheckoutClient.ShoppingListService.AddDrink(drinkCreateModel);
+
+            response2.Should().NotBeNull();
+            response2.HttpStatusCode.Should().Be(HttpStatusCode.Conflict);
+        }
+
+        [Test]
         public void GetDrinks()
         {
             var name = "TestDrink1";
