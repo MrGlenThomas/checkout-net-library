@@ -1,8 +1,8 @@
-﻿using Checkout.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using CheckoutEnvironment = Checkout.Helpers.Environment;
+
 namespace Checkout
 {
     /// <summary>

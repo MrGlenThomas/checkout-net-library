@@ -13,6 +13,8 @@ using FilterAction = Checkout.ApiServices.SharedModels.Action;
 
 namespace Tests
 {
+    using Checkout.ApiServices.ShoppingList.RequestModels;
+
     public class TestHelper
     {
         private static RandomData _randomData;
@@ -630,6 +632,44 @@ namespace Tests
         public static QueryRequest GetQueryRequest()
         {
             return GetQueryRequest(null);
+        }
+
+        #endregion
+
+        #region Shopping List Helpers
+
+        public static AddDrink GetDrinksCreateModel(string name, int quantity)
+        {
+            return new AddDrink
+            {
+                DrinkName = name,
+                Quantity = quantity
+            };
+        }
+
+        public static GetDrink GetDrinkByNameModel(string name)
+        {
+            return new GetDrink
+            {
+                DrinkName = name
+            };
+        }
+
+        public static UpdateDrink GetDrinksUpdateModel(string name, int quantity)
+        {
+            return new UpdateDrink
+            {
+                DrinkName = name,
+                Quantity = quantity
+            };
+        }
+
+        public static DeleteDrink GetDeleteDrinkModel(string name)
+        {
+            return new DeleteDrink
+            {
+                DrinkName = name
+            };
         }
 
         #endregion
