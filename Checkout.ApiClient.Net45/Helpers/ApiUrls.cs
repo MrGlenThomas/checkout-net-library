@@ -27,6 +27,8 @@
         private static string _addDrinkApiUri;
         private static string _getDrinksApiUri;
         private static string _getDrinkApiUri;
+        private static string _updateDrinkApiUri;
+        private static string _deleteDrinkApiUri;
 
         private static string _reportingTransactionsUri;
         private static string _reportingChargebacksUri;
@@ -187,10 +189,14 @@
                 (_recurringCustomerPaymentPlanApiUri =
                     string.Concat(AppSettings.BaseApiUri, "/recurringPayments/customers/{0}"));
 
-        public static string AddDrink => _addDrinkApiUri ?? (_addDrinkApiUri = string.Concat(AppSettings.BaseApiUri, "/charges"));
+        public static string AddDrink => _addDrinkApiUri ?? (_addDrinkApiUri = string.Concat(AppSettings.BaseApiUri, "/shoppinglist/drinks"));
 
-        public static string GetDrinks => _getDrinksApiUri ?? (_getDrinksApiUri = string.Concat(AppSettings.BaseApiUri, "/charges"));
+        public static string GetDrinks => _getDrinksApiUri ?? (_getDrinksApiUri = string.Concat(AppSettings.BaseApiUri, "/shoppinglist/drinks"));
 
-        public static string GetDrink => _getDrinkApiUri ?? (_getDrinkApiUri = string.Concat(AppSettings.BaseApiUri, "/charges"));
+        public static string GetDrink => _getDrinkApiUri ?? (_getDrinkApiUri = string.Concat(AppSettings.BaseApiUri, "/shoppinglist/drinks/{0}"));
+
+        public static string UpdateDrink => _updateDrinkApiUri ?? (_updateDrinkApiUri = string.Concat(AppSettings.BaseApiUri, "/shoppinglist/drinks/{0}"));
+
+        public static string DeleteDrink => _deleteDrinkApiUri ?? (_deleteDrinkApiUri = string.Concat(AppSettings.BaseApiUri, "/shoppinglist/drinks/{0}"));
     }
 }

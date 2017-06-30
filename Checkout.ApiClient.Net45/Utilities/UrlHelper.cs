@@ -25,9 +25,19 @@ namespace Checkout.Utilities
         //    return String.Format("{0}{1}", baseUri, apiSubPath);
         //}
 
+        public static string AddParameterToUrl(string url, string parameterName, object parameterValue)
+        {
+            return AddParameterToUrl(url, parameterName, parameterValue.ToString());
+        }
+
         public static string AddParameterToUrl(string url, string parameterName, string parameterValue)
         {
             return string.Format("{0}{1}{2}={3}", url, (url.Contains("?") ? "&" : "?"), parameterName, HttpUtility.UrlEncode(parameterValue));
+        }
+
+        public static string AddParameterToUrl(string url, Dictionary<string, object> parameterList)
+        {
+            return AddParameterToUrl(url, parameterList.ToDictionary(pair => pair.Key, pair => pair.Value.ToString()));
         }
 
         public static string AddParameterToUrl(string url, Dictionary<string,string> parameterList)
